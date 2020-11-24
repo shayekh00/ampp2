@@ -1,5 +1,10 @@
 import logo from './logo.svg';
 import './App.css';
+import Amplify from 'aws-amplify';
+import awsconfig from './aws-exports';
+import { AmplifySignOut, withAuthenticator } from '@aws-amplify/ui-react';
+
+Amplify.configure(awsconfig);
 
 function App() {
   return (
@@ -9,6 +14,8 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
+
+        <AmplifySignOut />
 
         <p>By Navid!</p>
         <a
@@ -24,4 +31,4 @@ function App() {
   );
 }
 
-export default App;
+export default withAuthenticator(App);
